@@ -1,0 +1,7 @@
+/target/
+.settings
+.git
+.classpath
+.project
+/bin/
+/WebContent/META-INF/

@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script type="text/javascript">
+			function registerSSE(){
+				var source = new EventSource("http://localhost:9090/ServerServletNotifications/NoticationServlet");
+				source.addEventListener('server-time', function(e){
+					document.getElementById('ticket').innerHTML=e.data;
+				},false);
+			}
+		</script>
+</head>
+<body onload="registerSSE()">
+	<div id="ticket">[TIME]</div>
+	aaaaaaaaaaaaaa http://localhost:8080/ServerServletNotifications/
+</body>
+</html>
