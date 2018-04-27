@@ -25,22 +25,26 @@ public class DeviceWebSocketServer {
 
 	@OnOpen
 	public void open(Session session) {
+		System.out.println("open(Session session:)"+session);
 		sessionHandler.addSession(session);
 	}
 
 	@OnClose
 	public void close(Session session) {
+		System.out.println("close(Session session:)"+session);
 		sessionHandler.removeSession(session);
 	}
 
 	@OnError
 	public void onError(Throwable error) {
+		System.out.println("error(error error:)"+error);
 		Logger.getLogger(DeviceWebSocketServer.class.getName()).log(Level.SEVERE, null, error);
 
 	}
 
 	@OnMessage
 	public void handleMessage(String message, Session session) {
+		System.out.println("public void handleMessage(String message:"+message+", Session session):"+session);
 		try (JsonReader reader = Json.createReader(new StringReader(message))) {
 			JsonObject jsonMessage = reader.readObject();
 
